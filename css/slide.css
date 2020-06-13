@@ -1,0 +1,11 @@
+.testemunhas {
+  margin-top: 150px;
+  margin-bottom: 100px;
+  width: 100vh;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+}
+.center {
+    margin-left: 30px;
+}

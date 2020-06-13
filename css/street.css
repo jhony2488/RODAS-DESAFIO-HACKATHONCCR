@@ -1,0 +1,60 @@
+.estrada {
+  width: 254px;
+  min-height: 100%;
+  position: fixed;
+  left: 77.3%;
+  background-image: url('../assets/estrada.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-clip: content-box;
+}
+.caminhao-animation {
+  position: absolute;
+  top: 100%;
+  animation: estrada 4s infinite;
+}
+.caminhao-animation2 {
+  position: absolute;
+  top: 100%;
+  left: 60%;
+  animation: estrada 6s infinite;
+}
+
+@-webkit-keyframes estrada {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -50%;
+  }
+}
+@-moz-keyframes estrada {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -50%;
+  }
+}
+@-o-keyframes estrada {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -50%;
+  }
+}
+@keyframes estrada {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -50%;
+  }
+}
+@media(max-width:900px){
+    .mobile-estrada{
+        display: none !important;
+    }
+}

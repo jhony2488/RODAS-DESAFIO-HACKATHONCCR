@@ -1,0 +1,337 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container-descktop {
+  width: 100%;
+  min-height: 300vh;
+  display: grid;
+  justify-items: center;
+}
+.container-mobile {
+  width: 100%;
+  min-height: 120vh;
+  display: none;
+  justify-items: center;
+}
+.fadeIn {
+  -webkit-animation: fadeIn 1.2s ease-in-out;
+  -moz-animation: fadeIn 1.2s ease-in-out;
+  -o-animation: fadeIn 1.2s ease-in-out;
+  animation: fadeIn 1.2s ease-in-out;
+}
+.header {
+  width: 90%;
+  min-height: 140vh;
+  background-image: url('../assets/banner.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+.frase {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: whitesmoke;
+  z-index: 2;
+  cursor: pointer;
+}
+.frase:hover {
+  color: rgb(64, 115, 224);
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.nav {
+  position: absolute;
+  top: -10%;
+  left: 54%;
+}
+.sobre {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  font-size: 40px;
+}
+.registre {
+  position: absolute;
+  top: 70%;
+  left: 39%;
+  font-size: 35px;
+}
+.pontos {
+  position: absolute;
+  top: 82%;
+  left: 73%;
+  font-size: 40px;
+}
+.logo {
+  -webkit-animation: pulse 1s ease-in-out 2;
+  -moz-animation: pulse 1s ease-in-out 2;
+  -o-animation: pulse 1s ease-in-out 2;
+  animation: pulse 1s ease-in-out 2;
+  position: absolute;
+  top: 5%;
+  left: 1.5%;
+  cursor: pointer;
+  z-index: 2;
+}
+.logo:hover {
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+.sobre:hover {
+  color: rgb(255, 255, 255);
+}
+.registre:hover {
+  color: rgb(153, 140, 140);
+}
+.pontos:hover {
+  color: red;
+}
+.content {
+  width: 100%;
+  margin-top: 200px;
+  display: grid;
+  justify-items: center;
+}
+.content img {
+  margin-bottom: 100px;
+}
+.content-frase {
+  position: absolute;
+  top: 86%;
+  left: 0%;
+  max-width: 80%;
+  font-size: 40px;
+  text-align: justify;
+  text-transform: uppercase;
+  z-index: 4;
+}
+.teste-saude {
+  width: 700px;
+  height: 500px;
+  background-color: rgb(151, 148, 148, 0.2);
+  border-radius: 70px;
+  position: relative;
+}
+.teste-title {
+  position: absolute;
+  top: 8%;
+  left: 21%;
+  cursor: pointer;
+}
+.teste-title:hover {
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+.caminhao {
+  width: 400px;
+  position: absolute;
+  top: 22%;
+  left: 20%;
+  cursor: pointer;
+}
+.caminhao:hover {
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+.logo-teste {
+  width: 280px;
+  position: absolute;
+  top: 26%;
+  left: 42%;
+  z-index: 3;
+  cursor: pointer;
+}
+.logo-teste:hover {
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+.button-test {
+  position: absolute;
+  top: 80%;
+  left: 7%;
+}
+.button-test:hover {
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+.rodas-on-life {
+  margin-top: 100px;
+  cursor: pointer;
+}
+.rodas-on-life:hover {
+  transform: scale(1.1);
+  transition: 0.7s;
+}
+.img-nav {
+  cursor: pointer;
+}
+.testemunhas {
+  margin-top: 100px;
+}
+.registre-icon {
+  position: relative;
+  top: 10%;
+  right: 3%;
+  width: 100vh;
+  min-height: 300px;
+}
+.icon-caminhao-registre {
+  position: absolute;
+  left: 10%;
+  z-index: 2;
+}
+.button4 {
+  position: absolute;
+  left: 35%;
+  top: 5%;
+  z-index: 0;
+}
+.button4:hover {
+  z-index: 3;
+}
+.footer {
+  display: grid;
+  height: 300px;
+  position: relative;
+  right: 0%;
+  width: 100%;
+  max-width: 100vh;
+}
+.banner-footer {
+  position: absolute;
+  left: -40%;
+  bottom: -120%;
+}
+.column3 {
+  position: absolute;
+  top: 50%;
+  right: 52%;
+}
+.sobre-footer {
+  position: absolute;
+  top: 70%;
+  left: -35%;
+  font-size: 40px;
+}
+.registre-footer {
+  position: absolute;
+  top: 100%;
+  left: -5%;
+  font-size: 35px;
+}
+.pontos-footer {
+  position: absolute;
+  top: 115%;
+  left: 22%;
+  font-size: 40px;
+}
+.sobre-footer {
+  color: black;
+}
+.registre-footer {
+  color: rgb(153, 140, 140);
+}
+.pontos-footer:hover {
+  color: red;
+}
+.contato {
+  position: absolute;
+  top: 160%;
+  left: 50%;
+  text-align: center;
+}
+.contato h3:hover {
+  color: whitesmoke;
+}
+.frase2 {
+  position: relative;
+  right: 5%;
+}
+.copyright-descktop {
+    position: absolute;
+    top: 207%;
+left: 50%;
+margin-bottom: 10px;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+@-moz-keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 1240px) {
+  .container-descktop {
+    display: none;
+  }
+  .container-mobile {
+    display: grid;
+  }
+}

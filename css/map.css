@@ -1,0 +1,24 @@
+.map {
+  position: absolute;
+  width: 532.62px;
+  height: 401.47px;
+  left: 30%;
+  top: 520%;
+  background: #e5e5e5;
+  border-radius: 102.688px;
+}
+.icon-map{
+    position: absolute;
+    top: 5%;
+    left: 30%;
+}
+.title-map{
+    position: absolute;
+    top: 65%;
+    left: 20%;
+}
+.button3{
+    position: absolute;
+    top: 75%;
+    left: 10%;
+}
