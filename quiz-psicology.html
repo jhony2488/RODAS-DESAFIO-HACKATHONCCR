@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!--[if lt IE 9]>
+      <script src="https://cdn.es.gov.br/scripts/extensions/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questionário Psicologico</title>
+    <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/product-links.css" />
+    <link rel="stylesheet" href="./css/quiz-psicology.css">
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1> Teste Psicologico </h1>
+        </header>
+        <main id="main" class="slide start">
+            <p>
+                Teste para depressão, Ansiedade e Stress baseado no DASS-21
+            </p>
+            <br>
+            <p>
+                Este Teste não é um diagnóstico e não é substituto de uma visita a um especialista
+            </p>
+
+            <button onclick="start()"> Start! </button>
+
+        </main>
+        <main id="main" class="slide res">
+            <p class="resposta" id='res'>
+                
+            </p>
+        </main>
+        <main id="main" class="slide questions">
+            <h1>Questionário</h1>
+            <form class="form"  name="formulario" action="./question.php" method="get" onsubmit="return validation(this);">
+                <div class="question">
+                    <h2>1.Eu achei difícil relaxar</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta1" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta1" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta1" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta1" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>2.Eu tive secura na boca</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta2" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta2" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta2" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta2" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>3.Eu não conseguia sentir nenhum sentimento positivo</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta3" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta3" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta3" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta3" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>4.Senti dificuldade em respirar </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta4" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta4" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta4" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta4" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>5.Eu reagi mal a situações </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta5" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta5" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta5" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta5" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>6.Tive tremores (por exemplo nas mãos) </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta6" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta6" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta6" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta6" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>7.Eu senti que estava muito nervoso </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta7" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta7" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta7" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta7" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>8.Eu estava preocupado com as situações em que entro em pânico </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta8" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta8" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta8" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta8" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>9.Eu senti que não tinha nada pelo que esperar </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta9" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta9" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta9" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta9" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>10.Eu me vi ficando agitado </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta10" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta10" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta10" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta10" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>11.Achei difícil relaxar </h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta11" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta11" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta11" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta11" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>12.Me senti desanimado e triste</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta12" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta12" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta12" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta12" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>13. Eu fiquei impaciente com qualquer coisa que me impedisse de continuar com o que estava
+                        fazendo</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta13" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta13" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta13" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta13" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>14. Eu senti que estava perto de entrar em pânico</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta14" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta14" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta14" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta14" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>15.Não consegui me entusiasmar com nada</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta15" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta15" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta15" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta15" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>16.Eu senti que não valia tanto como pessoa</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta16" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta16" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta16" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta16" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>17. Eu senti que estava um pouco sensível</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta17" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta17" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta17" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta17" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>18. Eu senti que estava perto de entrar em pânico</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta18" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta18" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta18" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta18" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>19. Eu percebi a ação do meu coração na ausência de esforço físico (por exemplo, sensação de
+                        aumento da'
+                        frequência cardíaca, falta de batimento cardíaco)</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta19" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta19" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta19" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta19" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>20. Eu me senti assustado sem qualquer boa razão</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta20" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta20" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta20" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta20" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <div class="question">
+                    <h2>21. Eu senti que a vida não tem sentido</h2>
+                    <br>
+                    <br>
+                    <input type="radio" name="pergunta21" value="nunca">
+                    <label for="">Nunca</label>
+                    <br>
+                    <input type="radio" name="pergunta21" value="asVezes">
+                    <label for="">As vezes</label>
+                    <br>
+                    <input type="radio" name="pergunta21" value="geralmente">
+                    <label for="">Geralmente</label>
+                    <br>
+                    <input type="radio" name="pergunta21" value="sempre">
+                    <label for="">Sempre</label>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </main>
+        <footer class="footer-quiz">
+            <a href="./index.html" class="interator">Voltar a tela inicial</a>
+            <a class="interator" href="./index.html">Copyright &copy; 2020 RODAS</a>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="./js/index.js"></script>
+</body>
+
+
+
+</html>
