@@ -58,18 +58,21 @@ a {
   top: 50%;
   left: 8%;
   font-size: 40px;
+  text-transform: uppercase;
 }
 .registre {
   position: absolute;
   top: 70%;
   left: 39%;
   font-size: 35px;
+  text-transform: uppercase;
 }
 .pontos {
   position: absolute;
   top: 82%;
   left: 73%;
   font-size: 40px;
+  text-transform: uppercase;
 }
 .logo {
   -webkit-animation: pulse 1s ease-in-out 2;
