@@ -339,14 +339,6 @@ function calculoRes(stress, ansiedade, depressao) {
     //nao faça nada
   }
   resDefinitive(warnDepression, warnAnsiedade, warnStress)
-  alert(
-    warnDepression +
-      ':stress' +
-      warnAnsiedade +
-      ':ansi' +
-      warnStress +
-      ':stress'
-  )
 }
 function resDefinitive(depressao, ansiedade, stress) {
   if (depressao == 0) {
