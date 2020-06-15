@@ -8,6 +8,7 @@
   background-size: cover;
   background-position: center;
   background-clip: content-box;
+  cursor: pointer;
 }
 .caminhao-animation {
   position: absolute;
