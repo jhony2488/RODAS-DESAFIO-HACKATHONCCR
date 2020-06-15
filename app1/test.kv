@@ -1,0 +1,1763 @@
+
+<Gerenciador>:
+    Menu:
+        name: 'menu'
+    Tarefas:
+        name: 'tarefas'
+    Testepsi0:
+        name: 'psi0'
+    Testepsi1:
+        name: 'psi1'
+    Testepsi2:
+        name: 'psi2'
+    Testepsi3:
+        name: 'psi3'
+    Testepsi4:
+        name: 'psi4'
+    Testepsi5:
+        name: 'psi5'
+    Testepsi6:
+        name: 'psi6'
+    Testepsi7:
+        name: 'psi7'
+    Testepsi8:
+        name: 'psi8'
+    Testepsi9:
+        name: 'psi9'
+    Testepsi10:
+        name: 'psi10'
+    Testepsi11:
+        name: 'psi11'
+    Testepsi12:
+        name: 'psi12'
+    Testepsi13:
+        name: 'psi13'
+    Testepsi14:
+        name: 'psi14'
+    Testepsi15:
+        name: 'psi15'
+    Testepsi16:
+        name: 'psi16'
+    Testepsi17:
+        name: 'psi17'
+    Testepsi18:
+        name: 'psi18'
+    Testepsi19:
+        name: 'psi19'
+    Testepsi20:
+        name: 'psi20'
+    Testepsi21:
+        name: 'psi21'
+    TestepsiResult:
+        name: 'psiresult'
+    MapaPsi:
+        name: 'mapapsi'
+    TroqueseusPontos:
+        name: 'troqueseuspontos'
+    EmpresasParceiras:
+        name: 'empresasparceiras'
+    Sobre:
+        name:'sobre'
+    TesteSono0:
+        name:'testesono0'
+    TesteSono1:
+        name:'testesono1'
+    TesteSono2:
+        name:'testesono2'
+    TesteSono3:
+        name:'testesono3'
+    TesteSono4:
+        name:'testesono4'
+    TesteSono5:
+        name:'testesono5'
+    TesteSono6:
+        name:'testesono6'
+    TesteSono7:
+        name:'testesono7'
+    TesteSono8:
+        name:'testesono8'
+    TesteSonoR:
+        name:'testesonor'
+
+<Menu>:
+    BoxLayout:
+        orientation:'vertical'
+
+
+        BoxLayout:
+
+            orientation: 'vertical'
+            size_hint: None, None
+            size: (self.width, self.height)
+
+
+            canvas:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    size: root.width, self.height
+                    pos: 0, root.height - self.height
+                Color:
+                    rgba: 0, 174, 200, 0.5
+                Rectangle:
+                    size: root.width, root.height
+                    pos: 0, root.height* 0.85
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    size: root.height * 0.15, root.height * 0.08
+                    pos: root.width * 0.01, root.height * 0.9
+                    source: 'Logo_rodas (1).png'
+
+
+        BoxLayout:
+            orientation:'vertical'
+            padding:root.width*0.25,root.height*0.1
+            spacing:'20dp'
+            canvas:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    size: self.size
+                    pos: 0, 0
+
+                Color:
+                    rgba: 1,1,1,0.6
+                Rectangle:
+                    size: self.width * 0.15, self.height * 2
+                    pos: self.width * 0.85, 0
+                    source:'estrada.png'
+
+
+
+
+
+            Botao:
+                text:'Registrar'
+                on_release:app.root.current = 'tarefas'
+                font_size: '20sp'
+
+            Botao:
+                text:'Teste sua mente'
+                font_size: '20sp'
+                on_release:app.root.current = 'psi0'
+            Botao:
+                text:'Atendimento Psicologico'
+                font_size: '20sp'
+                on_release: app.root.current = 'mapapsi'
+            Botao:
+                text: 'Teste de Sonolencia'
+                font_size: '20sp'
+                on_release: app.root.current = 'testesono0'
+            Botao:
+                text:'Troque seus Pontos!'
+                font_size: '20sp'
+                on_release: app.root.current = 'troqueseuspontos'
+
+            Botao:
+                text:'Empresas Parceiras'
+                font_size: '20sp'
+                on_release: app.root.current = 'empresasparceiras'
+            Botao:
+                text: 'Sobre'
+                font_size: '20sp'
+                on_release: app.root.current = 'sobre'
+            Botao:
+                text:'Sair'
+                font_size: '20sp'
+                on_release:root.confirmacao()
+<Tarefas>:
+    BoxLayout:
+        orientation:'vertical'
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    title:'Usuarios'
+                    on_release:app.root.current = 'menu'
+                ActionButton:
+                    text:'Sair'
+                    on_release:app.stop()
+        ScrollView:
+            BoxLayout:
+                id:box
+                orientation:'vertical'
+                size_hint_y:None
+                height:self.minimum_height
+        BoxLayout:
+            size_hint_y:None
+            height:'40sp'
+            TextInput:
+                id:texto
+            Button:
+                text:'+'
+                size_hint_x:None
+                width:'40sp'
+                on_release:root.addWidget()
+
+<Tarefa>:
+    size_hint_y:None
+    height:'100sp'
+    Label:
+        id:label
+        font_size:'20sp'
+    Button:
+        text:'X'
+        size_hint_x:None
+        width:'40sp'
+        on_release:app.root.get_screen('tarefas').removeWidget(root)
+
+
+<MapaPsi>:
+    name:'mapapsi'
+
+    BoxLayout:
+        #: import MapView kivy.garden.mapview.MapView
+
+        MapView:
+            lat: -23.451613
+            lon: -46.787044
+            zoom: 10
+            double_tap_zoom: True
+
+
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        size: root.width / 3, self.height
+        Button:
+            text:'Mostrar Locais Proximos'
+            on_release: print(root.lst_pts())
+
+
+        Button:
+            text: 'Voltar ao Menu'
+            on_release: app.root.current = 'menu'
+<TroqueseusPontos>:
+    name: 'troqueseuspontos'
+    BoxLayout:
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: root.height * 0.15, root.height * 0.08
+                pos: root.width * 0.01, root.height * 0.9
+                source: 'Logo_rodas (1).png'
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: root.width, root.height
+                pos: 0, 0
+            Color:
+                rgba: 0, 174, 200, 0.5
+            Rectangle:
+                size: root.width, root.height *0.3
+                pos: 0, root.height * 0.7
+
+        Label:
+            text: 'Troque seus Pontos'
+            font_size: '70sp'
+            color: 1, 1, 1, 1
+        Label:
+            text: 'Troque seus Pontos'
+            font_size: '70sp'
+            color: 1, 1, 1, 1
+        Botao:
+            text:'Voltar ao Menu'
+            size_hint: None, None
+            size: 100, 50
+            on_release: app.root.current = 'menu'
+<TesteSono0>:
+    name:'testesono0'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            text:'Este teste serve para medir o nivel de sonolencia diurna, que atinge a muitos. No caso de caminhoneiros e ainda mais perigoso, pois podem acabar em acidentes terriveis. Sao 8 questoes e voce deve classificar a chance de cochilar relacionada a algumas atividades.  '
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        BoxLayout:
+            padding: 150
+            Botao:
+                text: 'Comecar o Teste'
+                font_size: '25sp'
+                on_release: app.root.current = 'testesono1'
+        Label:
+            text: 'Teste desenvolvido por: Johns MW. A new method for measuring daytime sleepiness: the Epworth sleepiness scale. Sleep. 1991;14:540-5. PubMed '
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '10sp'
+            halign: 'center'
+
+<TesteSono1>:
+    name: 'testesono1'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'1. Sentar e ler'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono2'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono2'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono2'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono2'
+            on_release: app.sono += 3
+<TesteSono2>:
+    name: 'testesono2'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'2. Assistir a TV'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono3'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono3'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono3'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono3'
+            on_release: app.sono += 3
+<TesteSono3>:
+    name: 'testesono3'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'3. Ficar sentado, sem fazer nada, em um local publico'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono4'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono4'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono4'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono4'
+            on_release: app.sono += 3
+<TesteSono4>:
+    name: 'testesono4'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'4. Ficar sentado, por uma hora, como passageiro em um carro'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono5'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono5'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono5'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono5'
+            on_release: app.sono += 3
+<TesteSono5>:
+    name: 'testesono5'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'5. Deitar a tarde para descansar'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono6'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono6'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono6'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono6'
+            on_release: app.sono += 3
+<TesteSono6>:
+    name: 'testesono6'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'6. Sentar e conversar com outra pessoa'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono7'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono7'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono7'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono7'
+            on_release: app.sono += 3
+<TesteSono7>:
+    name: 'testesono7'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'7. Sentar, em silencio, depois do almoco (sem ingestao de alcool)'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono8'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono8'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono8'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesono8'
+            on_release: app.sono += 3
+<TesteSono8>:
+    name: 'testesono8'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'8. Sentado em um carro, parado por alguns minutos por causa de transito'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'Nenhuma chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesonor'
+            on_release: app.sono += 0
+        Botao:
+            text:'Leve chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesonor'
+            on_release: app.sono += 1
+        Botao:
+            text:'Chance moderada de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesonor'
+            on_release: app.sono += 2
+        Botao:
+            text:'Alta chance de cochilar'
+            font_size: '20sp'
+            on_release: app.root.current = 'testesonor'
+            on_release: app.sono += 3
+
+<TesteSonoR>:
+    name:'testesonor'
+    BoxLayout:
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        BoxLayout:
+
+            canvas:
+                Color:
+                    rgba: 1, 1, 1,1
+                Rectangle:
+                    size: self.width, self.height*5
+                Color:
+                    rgba: 0.1, 0.5, 0.7, 0.6
+                Rectangle:
+                    size: self.width, self.height
+                    pos: 0, self.height * 4
+            Label:
+                text: '1 - 6 pontos:'
+                font_size:'30sp'
+            Label:
+
+                text: 'Sono normal'
+                font_size:'30sp'
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0.1, 0.5, 0.7, 0.8
+                Rectangle:
+                    size: self.width, self.height
+                    pos: 0, self.height * 3
+            Label:
+                text: '7 - 8 pontos:'
+                font_size:'30sp'
+            Label:
+
+                text: 'Media de sonolencia'
+                font_size:'30sp'
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.5, 0.7, 0.6
+                Rectangle:
+                    size: self.width, self.height
+                    pos: 0, self.height * 2
+
+            Label:
+                text: '9 - 24 pontos:'
+                font_size:'30sp'
+            Label:
+
+                text: 'Sonolencia anormal \n(possivelmente patologica)'
+                font_size:'30sp'
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.5, 0.7, 0.8
+                Rectangle:
+                    size: self.width, self.height
+                    pos: 0, self.height
+            Label:
+                id: rsono
+                text: ''
+
+                font_size: '20sp'
+                color: 0,0,0,1
+                size_hint: 1, 1
+                text_size: self.width* 0.9, None
+                halign: 'justify'
+        BoxLayout:
+            padding: 30
+            Botao:
+                text:'Voltar ao Menu Principal'
+                on_release: app.root.current = 'menu'
+            Botao:
+                text: 'Ver Resultados'
+                on_release: rsono.text = app.calc_pontos_sono()
+
+<Sobre>:
+    name:'sobre'
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: root.width, root.height
+            Color:
+                rgba: 0, 174, 200, 0.5
+            Rectangle:
+                size: root.width, root.height * 0.1
+                pos: 0, root.height * 0.9
+
+        Label:
+            text:'RODAS- nasce como recurso Onlife de auxilio a saude. Com objetivo de priorizar a qualidade de vida e bem-estar de caminhoneiros e caminhoneiras, oferece ajuda em rede, prevencao e beneficios diversos para saude deles e de seus familiares. Busca desconstruir estigmas das enfermidades acometidas na profissao, auxiliar na percepcao de sinais de agravamento de ma qualidade de vida e cria um dialogo em uma rede de ajuda. Agrega parcerias ao longo das estradas, pontos de apoio nas comunidades e nas cidades, alem de suporte do programa Estrada na Saude da CCR. Orientara o cliente com notificacoes, videos e post de prevencao e dicas para melhora da sua saude mental, fisica e laboral (ergonomia). Dinamico e gamificado os clientes responderao perguntas para averiguar seu estado de saude. Suas respostas indicarao sua percepcao ao estado de saude e atencao ao corpo. Um mapa o guiara e orientara a buscar entidades assistencialistas especializadas. Em uma experiencia OnLife serao encaminhados para ajudas parceiras, em qualquer caso (leves ou agudos) que julguem necessarios. Em interacao com a plataforma, em suas diferentes abas, computara pontos, que poderao ser trocados por experiencias, descontos e premios no programa RodasOnLife, com parceiros do programa RodasAmigos. Ao criar uma relacao cotidiana com a plataforma, de forma saudavel, agregara valores reais e contribura com reivindicacoes de melhora de servicos e condicoes de trabalho da classe. Conduzira a melhoria no cotidiano de forma personalizada, gerando uma atencao a sua qualidade e dessa forma auxilia a evitar acidentes e agravos.'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, 1
+            text_size: self.width* 0.9, None
+            halign: 'justify'
+        Botao:
+            text:'Voltar ao Menu'
+            size_hint: None, None
+            size: 100, 50
+            on_release: app.root.current = 'menu'
+<EmpresasParceiras>:
+    name: 'empresasparceiras'
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: root.width, root.height
+                pos: 0, 0
+            Color:
+                rgba: 0, 174, 200, 0.5
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10, root.height/2 - root.width/10
+            Color:
+                rgba: 1, 1, 1, 1
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10, root.height/2 - root.width/10 + root.width/4
+                source:'A.png'
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10, root.height/2 - root.width/10 - root.width/4
+                source:'asfasf.png'
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10 + root.width/4, root.height/2 - root.width/10
+                source:'C.png'
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10 - root.width/4, root.height/2 - root.width/10
+                source:'dd.png'
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10 - root.width/4, root.height/2 - root.width/10 + root.width/4
+                source:'Ee.png'
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10 + root.width/4, root.height/2 - root.width/10 + root.width/4
+                source:'eet.png'
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10 - root.width/4, root.height/2 - root.width/10 - root.width/4
+                source:'nb.png'
+            Ellipse:
+                size: root.width/5, root.width/5
+                pos: root.width/2 - root.width/10 + root.width/4, root.height/2 - root.width/10 - root.width/4
+                source:'we.png'
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: root.height * 0.15, root.height * 0.08
+                pos: root.width * 0.01, root.height * 0.9
+                source: 'Logo_rodas (1).png'
+        Botao:
+            text:'Voltar ao Menu'
+            size_hint: None, None
+            size: 100, 50
+            on_release: app.root.current = 'menu'
+    Label:
+        text:"Empresas\nParceiras"
+        color: 0, 0, 0, 1
+        font_size: '30sp'
+        pos: 0,0
+
+<Testepsi0>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            text:'Um teste que verifica se voce esta sofrendo de Stress, Depressao ou Ansiedade, doencas muito comuns hoje em dia e que afetam diversas pessoas. Voce deve responder as perguntas considerando seus sentimentos na ultima semana.  '
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        BoxLayout:
+            padding: 150
+            Botao:
+                text: 'Comecar o Teste'
+                font_size: '25sp'
+                on_release: app.root.current = 'psi1'
+        Label:
+            text: 'Baseado no teste DASS-21, desenvolvido pelo PhD Peter Lovibond, da University of New South Wales, na Australia. Lembre-se, este teste tem como objetivo apenas fins de informacao, pois este teste nao e um instrumento de avaliacao diagnostica psicologica'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '10sp'
+            halign: 'center'
+<Testepsi1>:
+    name: 'psi1'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        Label:
+            width: self.width
+            text:'1. Eu tive dificuldade para relaxar'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            font_size: '20sp'
+
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi2'
+            on_release: app.pontos['str'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi2'
+            on_release: app.pontos['str'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi2'
+            on_release: app.pontos['str'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi2'
+            on_release: app.pontos['str'] += 3
+
+<Testepsi2>:
+    name: 'psi2'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'2. Eu estive com a boca seca'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi3'
+            on_release: app.pontos['ans'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi3'
+            on_release: app.pontos['ans'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi3'
+            on_release: app.pontos['ans'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi3'
+            on_release: app.pontos['ans'] += 3
+
+<Testepsi3>:
+    name: 'psi3'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'3. Eu nao consegui sentir nenhum sentimento positivo'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi4'
+            on_release: app.pontos['dep'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi4'
+            on_release: app.pontos['dep'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi4'
+            on_release: app.pontos['dep'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi4'
+            on_release: app.pontos['dep'] += 3
+
+<Testepsi4>:
+    name: 'psi4'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'4. Senti dificuldade em respirar (por exemplo: respiracao excessivamente rapida, falta de ar na ausencia de esforco fisico)'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi5'
+            on_release: app.pontos['ans'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi5'
+            on_release: app.pontos['ans'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi5'
+            on_release: app.pontos['ans'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi5'
+            on_release: app.pontos['ans'] += 3
+
+<Testepsi5>:
+    name: 'psi5'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'5. Achei dificil tomar a iniciativa de fazer as coisas'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi6'
+            on_release: app.pontos['dep'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi6'
+            on_release: app.pontos['dep'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi6'
+            on_release: app.pontos['dep'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi6'
+            on_release: app.pontos['dep'] += 3
+
+
+<Testepsi6>:
+    name: 'psi6'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'6. Eu reagi mal a situacoes'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi7'
+            on_release: app.pontos['str'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi7'
+            on_release: app.pontos['str'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi7'
+            on_release: app.pontos['str'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi7'
+            on_release: app.pontos['str'] += 3
+
+<Testepsi7>:
+    name: 'psi7'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'7. Tive tremores (por exemplo nas maos)'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi8'
+            on_release: app.pontos['ans'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi8'
+            on_release: app.pontos['ans'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi8'
+            on_release: app.pontos['ans'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi8'
+            on_release: app.pontos['ans'] += 3
+
+<Testepsi8>:
+    name: 'psi8'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'8. Eu senti que estava muito nervoso'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi9'
+            on_release: app.pontos['str'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi9'
+            on_release: app.pontos['str'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi9'
+            on_release: app.pontos['str'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi9'
+            on_release: app.pontos['str'] += 3
+
+<Testepsi9>:
+    name: 'psi9'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'9. Eu fiquei preocupado com as situacoes em que entro em panico e faco vexame'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi10'
+            on_release: app.pontos['ans'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi10'
+            on_release: app.pontos['ans'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi10'
+            on_release: app.pontos['ans'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi10'
+            on_release: app.pontos['ans'] += 3
+
+<Testepsi10>:
+    name: 'psi10'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'10. Eu senti que nao tinha nada pelo que esperar'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi11'
+            on_release: app.pontos['dep'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi11'
+            on_release: app.pontos['dep'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi11'
+            on_release: app.pontos['dep'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi11'
+            on_release: app.pontos['dep'] += 3
+
+<Testepsi11>:
+    name: 'psi11'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'11. Eu me vi ficando agitado'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi12'
+            on_release: app.pontos['str'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi12'
+            on_release: app.pontos['str'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi12'
+            on_release: app.pontos['str'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi12'
+            on_release: app.pontos['str'] += 3
+
+<Testepsi12>:
+    name: 'psi12'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'12. Achei dificil relaxar'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi13'
+            on_release: app.pontos['str'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi13'
+            on_release: app.pontos['str'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi13'
+            on_release: app.pontos['str'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi13'
+            on_release: app.pontos['str'] += 3
+
+<Testepsi13>:
+    name: 'psi13'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'13. Me senti desanimado e triste'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi14'
+            on_release: app.pontos['dep'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi14'
+            on_release: app.pontos['dep'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi14'
+            on_release: app.pontos['dep'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi14'
+            on_release: app.pontos['dep'] += 3
+
+
+<Testepsi14>:
+    name: 'psi14'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'14. Eu fiquei impaciente com qualquer coisa que me impedisse de continuar com o que estava fazendo'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi15'
+            on_release: app.pontos['str'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi15'
+            on_release: app.pontos['str'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi15'
+            on_release: app.pontos['str'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi15'
+            on_release: app.pontos['str'] += 3
+
+<Testepsi15>:
+    name: 'psi15'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'15. Eu senti que estava perto de entrar em panico'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi16'
+            on_release: app.pontos['ans'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi16'
+            on_release: app.pontos['ans'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi16'
+            on_release: app.pontos['ans'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi16'
+            on_release: app.pontos['ans'] += 3
+
+<Testepsi16>:
+    name: 'psi16'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'16. Nao consegui me entusiasmar com nada'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi17'
+            on_release: app.pontos['dep'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi17'
+            on_release: app.pontos['dep'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi17'
+            on_release: app.pontos['dep'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi17'
+            on_release: app.pontos['dep'] += 3
+
+
+<Testepsi17>:
+    name: 'psi17'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'17. Eu senti que nao valia tanto como pessoa'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi18'
+            on_release: app.pontos['dep'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi18'
+            on_release: app.pontos['dep'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi18'
+            on_release: app.pontos['dep'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi18'
+            on_release: app.pontos['dep'] += 3
+
+
+
+<Testepsi18>:
+    name: 'psi18'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'18. Eu senti que estava um pouco sensivel'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi19'
+            on_release: app.pontos['str'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi19'
+            on_release: app.pontos['str'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi19'
+            on_release: app.pontos['str'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi19'
+            on_release: app.pontos['str'] += 3
+
+<Testepsi19>:
+    name: 'psi19'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'19. Eu percebi a acao do meu coracao na ausencia de esforco fisico (por exemplo, sensacao de aumento da frequencia cardiaca, falta de batimento cardiaco)'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi20'
+            on_release: app.pontos['ans'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi20'
+            on_release: app.pontos['ans'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi20'
+            on_release: app.pontos['ans'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi20'
+            on_release: app.pontos['ans'] += 3
+
+<Testepsi20>:
+    name: 'psi20'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'20. Eu me senti assustado sem qualquer boa razao'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi21'
+            on_release: app.pontos['ans'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi21'
+            on_release: app.pontos['ans'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi21'
+            on_release: app.pontos['ans'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psi21'
+            on_release: app.pontos['ans'] += 3
+
+<Testepsi21>:
+    name: 'psi21'
+    BoxLayout:
+        orientation: 'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        padding:root.width*0.25,root.height*0.1
+        spacing:'30dp'
+        Label:
+            text:'21. Eu senti que a vida nao tem sentido'
+            font_size: '20sp'
+            color: 0,0,0,1
+            size_hint: 1, None
+            text_size: self.width* 0.9, None
+            halign: 'center'
+        Botao:
+            text:'NUNCA'
+            font_size: '20sp'
+            on_release: app.root.current = 'psiresult'
+            on_release: app.pontos['dep'] += 0
+        Botao:
+            text:'AS VEZES'
+            font_size: '20sp'
+            on_release: app.root.current = 'psiresult'
+            on_release: app.pontos['dep'] += 1
+        Botao:
+            text:'GERALMENTE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psiresult'
+            on_release: app.pontos['dep'] += 2
+        Botao:
+            text:'SEMPRE'
+            font_size: '20sp'
+            on_release: app.root.current = 'psiresult'
+            on_release: app.pontos['dep'] += 3
+
+<TestepsiResult>:
+    name:'psiresult'
+    BoxLayout:
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size: self.width, self.height
+        BoxLayout:
+
+            canvas:
+                Color:
+                    rgba: 1, 1, 1,1
+                Rectangle:
+                    size: self.width, self.height*4
+                Color:
+                    rgba: 0.1, 0.5, 0.7, 0.8
+                Rectangle:
+                    size: self.width, self.height
+                    pos: 0, self.height * 3
+            Label:
+                text: 'Depressao:'
+                font_size:'30sp'
+            Label:
+                id: rdep
+                text: 'Resultado'
+                font_size:'30sp'
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0.1, 0.5, 0.7, 0.6
+                Rectangle:
+                    size: self.width, self.height
+                    pos: 0, self.height * 2
+            Label:
+                text: 'Ansiedade:'
+                font_size:'30sp'
+            Label:
+                id: rans
+                text: 'Resultado'
+                font_size:'30sp'
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.5, 0.7, 0.8
+                Rectangle:
+                    size: self.width, self.height
+                    pos: 0, self.height
+
+            Label:
+                text: 'Stress:'
+                font_size:'30sp'
+            Label:
+                id: rstr
+                text: 'Resultado'
+                font_size:'30sp'
+
+
+        BoxLayout:
+            padding: 30
+            Botao:
+                text:'Voltar ao Menu Principal'
+                on_release: app.root.current = 'menu'
+            Botao:
+                text: 'Ver Resultados'
+                on_release: rstr.text = app.calc_pontos_str()
+                on_release: rans.text = app.calc_pontos_ans()
+                on_release: rdep.text = app.calc_pontos_dep()
+                on_release: app.alerta()
+
